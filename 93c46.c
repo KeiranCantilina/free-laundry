@@ -5,10 +5,10 @@
 #include <avr/io.h> 
 #include <util/delay.h> 
 
-#define SS      PB2 
-#define MOSI    PB3 
-#define MISO    PB4 
-#define SCK     PB5 
+#define SS      D1 
+#define MOSI    D2 
+#define MISO    D3 
+#define SCK     D4 
 
 uint16_t dataword; 
 
