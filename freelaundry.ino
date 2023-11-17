@@ -6,11 +6,13 @@
 #define F_CPU 80000000UL
 #endif
 
+uint16_t dataword;
+
 #include "93c46.c"
-#include "laundrycard.c"
 
 int valid;
 int balance;
+char msg[128];
 
 
 void setup(){
@@ -23,7 +25,7 @@ void setup(){
 	Serial.println("laundry card here\n\ncommands:\n1: get status and current balance\n2: fill card with 99.90\n3: set amount to 0.00\n\n");
 }
 
-int loop(void){
+void loop(void){
 	//the main loop does not do anything (uart event based)
 	while(1){ delay(20); }
 }
@@ -75,4 +77,31 @@ void serialEvent(){
 	}
 	//clear_uart_buffer();
 }
+
+
+// Below functions originally in separate file for unknown reason
+unsigned int get_balance(){
+	eeprom_read(0x07);
+	return dataword;
+}
+
+void set_balance(int amount){
+	eeprom_write(7,amount);
+	eeprom_write(9,amount);
+	eeprom_write(11,amount);
+	eeprom_write(18,amount);
+	eeprom_write(20,amount);
+	eeprom_write(21,amount);
+}
+
+unsigned int is_valid_card(){
+	eeprom_read(0x00);
+	eeprom_read(0x00);
+	if (dataword==0xe8){
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
 
