@@ -3,22 +3,20 @@ all code is for the mcu..
 ---
 
 howto setup:
-- plugin an atmega32a to an breadboard and set it up with 5v 
-- connect rs232 to the uart interface
-- connect atmega to the laundry card:
-	PB2=CS
-	PB3=DI
-	PB4=DO
-	PB5=SK
+- plugin an esp8266 dev board (eg. Adafruit Feather HUZZAH or similar) to a computer via USB 
+- Make sure driver for serial comms (and software for serial terminal) is installed on computer. Default Arduino stuff works for this.
+- connect ESP8266 to the laundry card:
+	D1=CS
+	D2=DI
+	D3=DO
+	D4=SK
 	5v=VCC
 	GND=GND (lol)
-- install avr-gcc and avrdude, setup an isp connection to atmega
-- then run:
-	# make all
-	# make program
+- install code to ESP using arduino IDE
+- then reboot ESP and open serial terminal
 
 howto use:
-1. open uart connection with cutecom or something like that
+1. open uart connection
    baud=9600UL
 2. follow instructions
 3. ???
