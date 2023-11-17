@@ -6,17 +6,12 @@
 #define F_CPU 80000000UL
 #endif
 
-#include <avr/io.h>
-#include <util/delay.h>
-#include <string.h>
-#include <avr/interrupt.h>
-
 #include "93c46.c"
 #include "laundrycard.c"
 
 int valid;
 int balance;
-char msg[128];
+
 
 void setup(){
   //go eeprom!

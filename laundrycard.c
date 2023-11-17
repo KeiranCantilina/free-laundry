@@ -2,7 +2,7 @@
  * laundrycard functions
  * lol, pay for washing
  ******************************************/
-
+#include "93c46.c"
 
 unsigned int get_balance(){
 	eeprom_read(0x07);
