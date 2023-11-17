@@ -38,7 +38,7 @@ laundry card:
 chip on laundry card:
 
 	VCC -|   o|- CS
-	NC 	-|    |- SK
+	NC  -|    |- SK
 	ORG -|	  |- DI
 	GND -|    |- DO
 
